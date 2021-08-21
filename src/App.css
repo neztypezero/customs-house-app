@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+@font-face { 
+	font-family: Knockout; 
+	src: url('./assets/font/KnockoutHTF29JuniorLiteweightRegular.otf') format("opentype"); 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+	font-family: Chronicle; 
+	src: url('./assets/font/ChronicleDisp-Roman.otf') format("opentype"); 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+	font-family:AvenirNext; 
+	src: url('./assets/font/AvenirNextLTPro-Regular.otf') format("opentype"); 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+	margin:0;
+	padding:0;
+	font-size:2vw;
+	font-family:Chronicle;
+	letter-spacing:0.1em;
 }
 
-.App-link {
-  color: #61dafb;
+#main {
+	overflow:hidden;
+	transform-origin:50% 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mainScreenWrapper {
+	position:relative;
+	padding-top:56.25%;
+	background-color:#fff;
+}
+
+.full-screen-container {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	background-size: 100% auto;
+	transition:opacity 1s;
+}
+
+.full-screen-container > .full-screen-inner {
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.full-screen-container > .full-screen-inner > .padding {
+	padding:3.4em 0 2.6em;
+	height: 100%;
+	box-sizing: border-box;
+	position:relative;
+}
+
+.full-screen-container.fade-exit {
+	opacity:0;
+}
+
+.full-screen-container.fade-enter {
+	opacity:0;
+}
+
+.full-screen-container.fade-enter-active {
+	opacity:1;
+}
+
+.customs-house-button {
+	border:solid 1px #c78e71;
+	text-decoration:none;
+	text-transform: uppercase;
+	padding:0.5em 1.5em;
+	color: #10273b;
+	background-color:#fffb;
+	transition:color 0.5s, background-color 1s;
+	display:block;
+}
+
+.customs-house-button:hover {
+	color:#fff;
+	background-color:#c78e71;
+}
+
+.customs-house-button[data-is-active="true"] {
+	background-color:#10273b;
+	border: solid 1px #10273b;
+	color: #fff;
 }

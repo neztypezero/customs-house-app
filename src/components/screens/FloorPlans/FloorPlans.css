@@ -1,0 +1,206 @@
+#floor-plans-screen-container.full-screen-container #floor-plans-screen-inner.full-screen-inner .padding img.full-size {
+	width:100%;
+	height:100%;
+}
+
+#floor-plans-screen-container #floor-plans-screen-inner::after {
+	content:'';
+	bottom:0;
+	left:0;
+	width:100%;
+	height:25%;
+	position: absolute;
+	background-image: url('../../../assets/img/backgrounds/CH_UIBG_TILE.jpg');
+	background-size:2% auto;
+	background-position:bottom;
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+	mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+}
+
+#floor-plans-screen-container .customs-house-button {
+	position:absolute;
+	font-size:0.9em;
+	padding: 0.4em 1.0em;
+	z-index:2;
+}
+
+#floor-plans-screen-container .customs-house-button.urban {
+	top:22%;
+	right:23%;
+}
+
+#floor-plans-screen-container .customs-house-button.harbour-view {
+	top:54.4%;
+	left:20%;
+}
+
+#floor-plans-screen-container .customs-house-button.suite-type {
+	top:80%;
+	right:45%;
+}
+
+#floor-plans-screen-container.full-screen-container > #floor-plans-screen-inner.full-screen-inner > .padding div {
+	height:100%;
+}
+
+.room-collection-container {
+	position:relative;
+}
+
+.room-collection-container .room-collection-nav {
+	display:flex;
+	text-transform:uppercase;
+	font-family:AvenirNext;
+	font-size:0.6em;
+	color:#c78e71;
+	line-height:2em;
+	position:absolute;
+	top:0;
+	left:0.05em;
+	height:100%;
+	z-index:2;
+	margin-top:5.6em;
+	background-color:#fffd;
+	min-width:13em;
+}
+
+.room-collection-container .room-collection-nav .level-list {
+	padding-right:0.9em;
+}
+
+.room-collection-container .room-collection-nav .room-container .room-list {
+	border-left:solid 1px #10273b;
+}
+
+.room-collection-container .room-collection-nav ul {
+	list-style:none;
+}
+
+.room-collection-container .room-collection-nav a {
+	color:inherit;
+	text-decoration:none;
+	transition:color 0.5s;
+}
+
+.room-collection-container .room-collection-nav .room-list {
+/*
+	display:none;
+*/
+	z-index:0;
+	opacity:0;
+	position:absolute;
+	pointer-events:none;
+	transition:opacity 0.5s;
+}
+
+.room-collection-container .room-collection-nav .room-list[data-current="true"] {
+	z-index:2;
+	opacity:1;
+	pointer-events:all;
+}
+
+.room-collection-container .room-collection-nav a[data-current="true"],
+.room-collection-container .room-collection-nav a[data-next="true"] {
+	color:#10273b;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-collection-nav .room-list[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-collection-nav .room-list[data-current="true"] {
+	opacity:0;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-collection-nav .room-list[data-next="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-collection-nav .room-list[data-next="true"] {
+	opacity:1;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-collection-nav a[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-collection-nav a[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-collection-nav a[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-collection-nav a[data-current="true"] {
+	color:inherit;
+}
+
+.room-collection-container .room-floor-plan-container {
+	position:relative;
+	height:100%;
+	z-index:1;
+	overflow:hidden;
+}
+
+.room-collection-container .room-floor-plan-container img {
+	width:100%;
+	height:auto;
+	position:absolute;
+	left:100%;
+	top:100%;
+}
+
+.room-collection-container .room-floor-plan-container img[data-current="true"] {
+	left:0;
+	top:0;
+}
+
+.room-collection-container[data-animation-direction="left"] .room-floor-plan-container img[data-next="true"] {
+	left:100%;
+	top:0;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-floor-plan-container img[data-current="true"] {
+	left:-100%;
+	transition:left 0.5s, top 0.5s;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-floor-plan-container img[data-next="true"] {
+	left:0;
+	transition:left 0.5s, top 0.5s;
+}
+
+.room-collection-container[data-animation-direction="right"] .room-floor-plan-container img[data-next="true"] {
+	left:-100%;
+	top:0;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-floor-plan-container img[data-current="true"] {
+	left:100%;
+	transition:left 0.5s;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-floor-plan-container img[data-next="true"] {
+	left:0;
+	transition:left 0.5s;
+}
+
+.room-collection-container[data-animation-direction="up"] .room-floor-plan-container img[data-next="true"] {
+	left:0;
+	top:100%;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-floor-plan-container img[data-current="true"] {
+	top:-100%;
+	transition:top 0.5s;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-floor-plan-container img[data-next="true"] {
+	top:0;
+	transition:top 0.5s;
+}
+
+.room-collection-container[data-animation-direction="down"] .room-floor-plan-container img[data-next="true"] {
+	left:0;
+	top:-100%;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-current="true"] {
+	top:100%;
+	transition:top 0.35s;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-next="true"] {
+	top:0;
+	transition:top 0.35s;
+}
+
+#nav-overlay-container #nav-overlay-inner .bottom-nav-container {
+	background-color:transparent;
+}
