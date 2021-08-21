@@ -12,7 +12,8 @@ import IntroScreen from "./components/screens/IntroScreen/IntroScreen";
 import NavOverlay from "./components/nav/NavOverlay";
 
 const client = new ApolloClient({
-	uri:"http://localhost:4000/graphql",
+	// uri:"http://localhost:4000/graphql",
+	uri:"https://8d1ne.sse.codesandbox.io/graphql",
 	cache: new InMemoryCache(),
 });
 
