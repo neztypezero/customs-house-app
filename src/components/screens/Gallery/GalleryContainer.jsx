@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from "@apollo/client";
 import SlideShow from "../../SlideShow/SlideShow";
 
+import LoadingSVG from "../../LoadingSVG/LoadingSVG";
 let ctx = require.context('../../../assets/img/gallery', true);
 
 function GalleryContainer(props) {
@@ -20,9 +21,8 @@ function GalleryContainer(props) {
 		}
 	);
 
-	if (loading) return <div></div>;
 	if (error) return <div>error</div>;
-	if (!images) return <div></div>;
+	if (loading || !images) return <LoadingSVG />;
 
 	return (
 		<SlideShow>

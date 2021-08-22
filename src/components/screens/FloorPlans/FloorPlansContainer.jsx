@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CSSTransition } from "react-transition-group";
 import { useQuery } from "@apollo/client";
 
+import LoadingSVG from "../../LoadingSVG/LoadingSVG";
 let ctx = require.context('../../../assets/img/floorplans', true);
 
 function FloorPlansContainer(props) {
@@ -35,9 +36,8 @@ function FloorPlansContainer(props) {
 		}
 	);
 
-	if (loading) return <div></div>;
 	if (error) return <div>error</div>;
-	if (!levels) return <div></div>;
+	if (!levels || loading) return <LoadingSVG />;
 
 	return (
 		<CSSTransition in={startTransition} timeout={1000} classNames="floor-plan-change" 

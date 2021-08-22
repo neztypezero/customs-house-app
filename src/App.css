@@ -98,3 +98,11 @@ body {
 	border: solid 1px var(--customs-house-main-color);
 	color: #fff;
 }
+
+.customs-house-loading-icon {
+	position:absolute;
+	width:10%;
+	height:auto;
+	top:40%;
+	left:45%;
+}
