@@ -3,6 +3,7 @@ import { Link, Route, Switch, withRouter, useHistory } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import './NavOverlay.css';
+import logo from '../../assets/img/icons/CH_header_logo.svg';
 
 import {navRoutes} from "../screens/ScreenRoutes";
 
@@ -50,7 +51,7 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 	return <div id="nav-overlay-container" className="full-screen-container" data-location={location.pathname}>
 		<div id="nav-overlay-inner">
 			<div className="header-container">
-				<div className="customs-house-logo"><Link to="/"></Link></div>
+				<div className="customs-house-logo"><Link to="/"><img src={logo} alt="Customs House Crown Logo" /></Link></div>
 				<div className="customs-house-text"><Link to="/"></Link></div>
 				<div className="location-text">
 					<TransitionGroup>
