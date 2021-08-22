@@ -60,7 +60,7 @@
 	height:100%;
 	z-index:2;
 	margin-top:5.6em;
-	background-color:#fffd;
+	background-color:#fff;
 	min-width:13em;
 }
 
@@ -152,12 +152,28 @@
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-floor-plan-container img[data-current="true"] {
 	left:-100%;
-	transition:left 0.5s, top 0.5s;
 }
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-floor-plan-container img[data-next="true"] {
 	left:0;
-	transition:left 0.5s, top 0.5s;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-floor-plan-container img[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-floor-plan-container img[data-next="true"] {
+	transform: translate(100%, 0);
+	animation: 0.5s room-collection-slide-left-animation;
+}
+
+@keyframes room-collection-slide-left-animation {
+	25% {
+		transform: translate(105%, 0);
+		animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+	}
+
+	100% {
+		transform: translate(0, 0);
+		animation-timing-function: cubic-bezier(0.2,1,0.3,1);
+	}
 }
 
 .room-collection-container[data-animation-direction="right"] .room-floor-plan-container img[data-next="true"] {
@@ -167,12 +183,28 @@
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-floor-plan-container img[data-current="true"] {
 	left:100%;
-	transition:left 0.5s;
 }
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-floor-plan-container img[data-next="true"] {
 	left:0;
-	transition:left 0.5s;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-floor-plan-container img[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-floor-plan-container img[data-next="true"] {
+	transform: translate(-100%, 0);
+	animation: 0.5s room-collection-slide-right-animation;
+}
+
+@keyframes room-collection-slide-right-animation {
+	25% {
+		transform: translate(-105%, 0);
+		animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+	}
+
+	100% {
+		transform: translate(0, 0);
+		animation-timing-function: cubic-bezier(0.2,1,0.3,1);
+	}
 }
 
 .room-collection-container[data-animation-direction="up"] .room-floor-plan-container img[data-next="true"] {
@@ -182,12 +214,28 @@
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-floor-plan-container img[data-current="true"] {
 	top:-100%;
-	transition:top 0.5s;
 }
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-floor-plan-container img[data-next="true"] {
 	top:0;
-	transition:top 0.5s;
+}
+
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-floor-plan-container img[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-floor-plan-container img[data-next="true"] {
+	transform: translate(0, 100%);
+	animation: 0.5s room-collection-slide-up-animation;
+}
+
+@keyframes room-collection-slide-up-animation {
+	25% {
+		transform: translate(0, 105%);
+		animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+	}
+
+	100% {
+		transform: translate(0, 0);
+		animation-timing-function: cubic-bezier(0.2,1,0.3,1);
+	}
 }
 
 .room-collection-container[data-animation-direction="down"] .room-floor-plan-container img[data-next="true"] {
@@ -197,14 +245,30 @@
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-current="true"] {
 	top:100%;
-	transition:top 0.35s;
 }
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-next="true"] {
 	top:0;
-	transition:top 0.35s;
 }
 
-#nav-overlay-container #nav-overlay-inner .bottom-nav-container {
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-next="true"] {
+	transform: translate(0, -100%);
+	animation: 0.5s room-collection-slide-down-animation;
+}
+
+@keyframes room-collection-slide-down-animation {
+	25% {
+		transform: translate(0, -105%);
+		animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+	}
+
+	100% {
+		transform: translate(0, 0);
+		animation-timing-function: cubic-bezier(0.2,1,0.3,1);
+	}
+}
+
+#nav-overlay-container[data-location^="/floorplans"] #nav-overlay-inner .bottom-nav-container {
 	background-color:transparent;
 }

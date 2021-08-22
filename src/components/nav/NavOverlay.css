@@ -7,7 +7,7 @@
 #nav-overlay-inner > .header-container,
 #nav-overlay-inner > .bottom-nav-container {
 	transition:transform 1s;
-	background-color:#fffa;
+	background-color:#fff;
 	box-sizing:border-box;
 }
 

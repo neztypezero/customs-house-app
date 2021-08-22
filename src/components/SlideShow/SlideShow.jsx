@@ -34,7 +34,7 @@ function SlideShow(props) {
 	};
 
 	return (
-		<CSSTransition in={slideAnimate} timeout={1000} classNames="slide-show" 
+		<CSSTransition in={slideAnimate} timeout={1000} classNames={"slide-show"+(slideOffset===1?"-right":(slideOffset===-1?"-left":""))} 
 
 		onEntering={() => {
 			setSlideIndex(slideIndex+slideOffset);

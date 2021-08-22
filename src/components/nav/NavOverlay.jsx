@@ -48,7 +48,7 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 		return location.pathname.startsWith(buttonLocation);
 	};
 
-	return <div id="nav-overlay-container" className="full-screen-container" data-location={location.pathname}>
+	return <div id="nav-overlay-container" data-location={location.pathname}>
 		<div id="nav-overlay-inner">
 			<div className="header-container">
 				<div className="customs-house-logo"><Link to="/"><img src={logo} alt="Customs House Crown Logo" /></Link></div>
