@@ -60,14 +60,16 @@ function FloorPlansContainer(props) {
 						<li key={level.id}>
 							<Link data-current={level.id===currentLevelId} data-next={level.id===nextLevelId} to="#" onClick={(e) => {
 								e.preventDefault();
-								setNextLevelId(level.id);
-								setNextFloorPlanId(level.floorPlans[0].id);
-								if (level.id > currentLevelId) {
-									setNextDirection('up');
-								} else {
-									setNextDirection('down');
+								if (level.id !== currentLevelId) {
+									setNextLevelId(level.id);
+									setNextFloorPlanId(level.floorPlans[0].id);
+									if (level.id > currentLevelId) {
+										setNextDirection('up');
+									} else {
+										setNextDirection('down');
+									}
+									setStartTransition(true);
 								}
-								setStartTransition(true);
 							}}>{(level.level?'Level'+level.level:level.count+' Bed')}</Link>
 						</li>
 					))}
@@ -82,13 +84,15 @@ function FloorPlansContainer(props) {
 								return <li key={floorPlan.id}>
 									<Link data-current={floorPlan.id===currentFloorPlanId} data-next={floorPlan.id===nextFloorPlanId} to="#" onClick={(e) => {
 										e.preventDefault();
-										setNextFloorPlanId(floorPlan.id);
-										if (floorPlan.id > currentFloorPlanId) {
-											setNextDirection('left');
-										} else {
-											setNextDirection('right');
+										if (floorPlan.id !== currentFloorPlanId) {
+											setNextFloorPlanId(floorPlan.id);
+											if (floorPlan.id > currentFloorPlanId) {
+												setNextDirection('left');
+											} else {
+												setNextDirection('right');
+											}
+											setStartTransition(true);
 										}
-										setStartTransition(true);
 									}}>{floorPlan.name}</Link>
 								</li>
 							} else {

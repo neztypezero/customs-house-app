@@ -7,3 +7,15 @@
 	left:15%;
 	top: 25%;
 }
+
+#intro-screen-container .preloaderContainer {
+	height:100%;
+	top: 100%;
+	position: relative;	
+}
+
+#intro-screen-container .preloaderContainer > * {
+	height:100%;
+	position:relative;
+	z-index:2;
+}

@@ -114,8 +114,8 @@
 	opacity:1;
 }
 
-.room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-collection-nav a[data-current="true"],
-.room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-collection-nav a[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-collection-nav .room-container a[data-current="true"],
+.room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-collection-nav .room-container a[data-current="true"],
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-collection-nav a[data-current="true"],
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-collection-nav a[data-current="true"] {
 	color:inherit;
