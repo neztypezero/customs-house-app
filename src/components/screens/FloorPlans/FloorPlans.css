@@ -72,6 +72,10 @@
 	border-left:solid 1px #10273b;
 }
 
+.room-collection-container .room-collection-nav .room-container .no-name {
+	display:none;
+}
+
 .room-collection-container .room-collection-nav ul {
 	list-style:none;
 }

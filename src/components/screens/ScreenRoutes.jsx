@@ -14,7 +14,7 @@ import ScreenSaver from "./ScreenSaver/ScreenSaver";
 
 import { Link } from 'react-router-dom';
 
-const screenRoutes = [
+const bottomNavRoutes = [
 	{
 		component:Gallery,
 		path:'/gallery',
@@ -35,6 +35,10 @@ const screenRoutes = [
 		path:'/location',
 		text:'LOCATION'
 	},
+];
+
+const screenRoutes = [
+	...bottomNavRoutes,
 	{
 		component:MainScreen,
 		path:'/',
@@ -96,4 +100,4 @@ const screenSaverRoute = {
 	text:''
 };
 
-export {screenRoutes, galleryRoutes, floorPlanRoutes, navRoutes, screenSaverRoute};
+export {screenRoutes, galleryRoutes, floorPlanRoutes, navRoutes, bottomNavRoutes, screenSaverRoute};

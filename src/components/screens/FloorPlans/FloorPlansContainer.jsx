@@ -96,7 +96,7 @@ function FloorPlansContainer(props) {
 									}}>{floorPlan.name}</Link>
 								</li>
 							} else {
-								return <></>
+								return <li key={floorPlan.id} className="no-name"></li>
 							}
 						})}
 						</ul>
