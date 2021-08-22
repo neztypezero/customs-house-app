@@ -26,7 +26,7 @@ function GalleryContainer(props) {
 
 	return (
 		<SlideShow>
-			{images.map(img => <img src={ctx('./'+img.src).default} alt={img.alt} />)}
+			{images.map(img => <img key={img.src} src={ctx('./'+img.src).default} alt={img.alt} />)}
 		</SlideShow>
 	);
 }
