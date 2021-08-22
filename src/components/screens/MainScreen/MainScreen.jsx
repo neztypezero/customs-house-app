@@ -11,10 +11,10 @@ function MainScreen() {
 				<h1>Customs</h1>
 				<h2>House</h2>
 				<ul id="main-links-list">
-					<li><Link to="/gallery">Gallery</Link></li>
-					<li><Link to="/floorplans">Floorplans</Link></li>
-					<li><Link to="/view">View</Link></li>
-					<li><Link to="/location">Location</Link></li>
+					<li><Link draggable="false" to="/gallery">Gallery</Link></li>
+					<li><Link draggable="false" to="/floorplans">Floorplans</Link></li>
+					<li><Link draggable="false" to="/view">View</Link></li>
+					<li><Link draggable="false" to="/location">Location</Link></li>
 				</ul>
 			</div>
 		</div>

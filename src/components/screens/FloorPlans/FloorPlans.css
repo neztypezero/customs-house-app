@@ -1,3 +1,7 @@
+:root {
+	--floor-plans-animtion-duration: 1s;
+}
+
 #floor-plans-screen-container.full-screen-container #floor-plans-screen-inner.full-screen-inner .padding img.full-size {
 	width:100%;
 	height:100%;
@@ -52,7 +56,7 @@
 	text-transform:uppercase;
 	font-family:AvenirNext;
 	font-size:0.6em;
-	color:#c78e71;
+	color:var(--customs-house-accent-color);
 	line-height:2em;
 	position:absolute;
 	top:0;
@@ -69,7 +73,7 @@
 }
 
 .room-collection-container .room-collection-nav .room-container .room-list {
-	border-left:solid 1px #10273b;
+	border-left:solid 1px var(--customs-house-main-color);
 }
 
 .room-collection-container .room-collection-nav .room-container .no-name {
@@ -105,7 +109,7 @@
 
 .room-collection-container .room-collection-nav a[data-current="true"],
 .room-collection-container .room-collection-nav a[data-next="true"] {
-	color:#10273b;
+	color:var(--customs-house-main-color);
 }
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-collection-nav .room-list[data-current="true"],
@@ -161,7 +165,7 @@
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-floor-plan-container img[data-current="true"],
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="left"] .room-floor-plan-container img[data-next="true"] {
 	transform: translate(100%, 0);
-	animation: 0.5s room-collection-slide-left-animation;
+	animation: var(--floor-plans-animtion-duration) room-collection-slide-left-animation forwards;
 }
 
 @keyframes room-collection-slide-left-animation {
@@ -192,7 +196,7 @@
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-floor-plan-container img[data-current="true"],
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="right"] .room-floor-plan-container img[data-next="true"] {
 	transform: translate(-100%, 0);
-	animation: 0.5s room-collection-slide-right-animation;
+	animation: var(--floor-plans-animtion-duration) room-collection-slide-right-animation forwards;
 }
 
 @keyframes room-collection-slide-right-animation {
@@ -223,7 +227,7 @@
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-floor-plan-container img[data-current="true"],
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="up"] .room-floor-plan-container img[data-next="true"] {
 	transform: translate(0, 100%);
-	animation: 0.5s room-collection-slide-up-animation;
+	animation: var(--floor-plans-animtion-duration) room-collection-slide-up-animation forwards;
 }
 
 @keyframes room-collection-slide-up-animation {
@@ -254,7 +258,7 @@
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-current="true"],
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-next="true"] {
 	transform: translate(0, -100%);
-	animation: 0.5s room-collection-slide-down-animation;
+	animation: var(--floor-plans-animtion-duration) room-collection-slide-down-animation forwards;
 }
 
 @keyframes room-collection-slide-down-animation {

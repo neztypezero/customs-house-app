@@ -3,7 +3,7 @@ import { Link, Route, Switch, withRouter, useHistory } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import './NavOverlay.css';
-import logo from '../../assets/img/icons/CH_header_logo.svg';
+import NavLogoSVG from './NavLogoSVG';
 
 import {navRoutes, bottomNavRoutes} from "../screens/ScreenRoutes";
 
@@ -51,8 +51,8 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 	return <div id="nav-overlay-container" data-location={location.pathname}>
 		<div id="nav-overlay-inner">
 			<div className="header-container">
-				<div className="customs-house-logo"><Link to="/"><img src={logo} alt="Customs House Crown Logo" /></Link></div>
-				<div className="customs-house-text"><Link to="/"></Link></div>
+				<div className="customs-house-logo"><Link draggable="false" to="/"><NavLogoSVG /></Link></div>
+				<div className="customs-house-text"><Link draggable="false" to="/"></Link></div>
 				<div className="location-text">
 					<TransitionGroup>
 						<CSSTransition key={location.key} classNames="ani-text" timeout={1000}>
@@ -70,7 +70,7 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 			<div className="bottom-nav-container">
 				<ul id="nav-links-list">
 				{bottomNavRoutes.map((route) => (
-					<li key={"bnav-"+route.path} className={route.text.toLowerCase()}><Link className="customs-house-button" to={route.path} data-is-active={isActive(route.path)}>{route.text}</Link></li>
+					<li key={"bnav-"+route.path} className={route.text.toLowerCase()}><Link draggable="false" className="customs-house-button" to={route.path} data-is-active={isActive(route.path)}>{route.text}</Link></li>
 				))}
 				</ul>
 				</div>

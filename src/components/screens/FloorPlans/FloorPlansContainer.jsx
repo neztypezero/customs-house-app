@@ -40,7 +40,7 @@ function FloorPlansContainer(props) {
 	if (!levels) return <div></div>;
 
 	return (
-		<CSSTransition in={startTransition} timeout={500} classNames="floor-plan-change" 
+		<CSSTransition in={startTransition} timeout={1000} classNames="floor-plan-change" 
 		onEntered={() => {
 			if (nextLevelId !== '') {
 				setCurrentLevelId(nextLevelId);
@@ -58,7 +58,7 @@ function FloorPlansContainer(props) {
 					<ul className="level-list">
 					{levels.map((level, i) => (
 						<li key={level.id}>
-							<Link data-current={level.id===currentLevelId} data-next={level.id===nextLevelId} to="#" onClick={(e) => {
+							<Link draggable="false" data-current={level.id===currentLevelId} data-next={level.id===nextLevelId} to="#" onClick={(e) => {
 								e.preventDefault();
 								if (level.id !== currentLevelId) {
 									setNextLevelId(level.id);
@@ -82,7 +82,7 @@ function FloorPlansContainer(props) {
 							if (!floorPlanObj[floorPlan.name]) {
 								floorPlanObj[floorPlan.name] = floorPlan;
 								return <li key={floorPlan.id}>
-									<Link data-current={floorPlan.id===currentFloorPlanId} data-next={floorPlan.id===nextFloorPlanId} to="#" onClick={(e) => {
+									<Link draggable="false" data-current={floorPlan.id===currentFloorPlanId} data-next={floorPlan.id===nextFloorPlanId} to="#" onClick={(e) => {
 										e.preventDefault();
 										if (floorPlan.id !== currentFloorPlanId) {
 											setNextFloorPlanId(floorPlan.id);

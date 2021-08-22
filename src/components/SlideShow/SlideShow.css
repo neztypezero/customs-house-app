@@ -22,10 +22,10 @@
 
 .slide-show-container.slide-show-right-enter > .slide-show-viewport > .slide-container {
 	transform: translate(100vw, 0);
-	animation: 1s slide-right-animation;
+	animation: 1s slide-show-right-animation forwards;
 }
 
-@keyframes slide-right-animation {
+@keyframes slide-show-right-animation {
 	25% {
 		animation-timing-function: cubic-bezier(0.7,0,0.3,1);
 		transform: translate(105vw, 0);
@@ -38,11 +38,11 @@
 }
 
 .slide-show-container.slide-show-left-enter > .slide-show-viewport > .slide-container {
-		transform: translate(-100vw, 0);
-		animation: 1s slide-left-animation;
+	transform: translate(-100vw, 0);
+	animation: 1s slide-show-left-animation forwards;
 }
 
-@keyframes slide-left-animation {
+@keyframes slide-show-left-animation {
 	25% {
 		animation-timing-function: cubic-bezier(0.7,0,0.3,1);
 		transform: translate(-105vw, 0);
@@ -73,16 +73,16 @@
 }
 
 .slide-show-container .slide-show-arrow svg > g > path {
-	stroke:#c78e71;
+	stroke:var(--customs-house-accent-color);
 	stroke-width:0.16px;
 }
 
 .slide-show-container .slide-show-arrow svg:hover > g {
-	fill: #10273b;
+	fill:var(--customs-house-main-color);
 }
 
 .slide-show-container .slide-show-arrow svg:hover > g > path {
-	stroke:#10273b;
+	stroke:var(--customs-house-main-color);
 }
 
 .slide-show-container > .slide-show-prev,
@@ -119,15 +119,15 @@
 	background-color:#fff;
 	margin:0.2em;
 	border-radius:0.5em;
-	border: solid 1px #c78e71;
+	border: solid 1px var(--customs-house-accent-color);
 	transition:background-color 0.8s;
 	cursor:pointer;
 }
 
 .slide-show-container > .slide-show-dots > .dot:hover {
-	background-color:#c78e71;
+	background-color:var(--customs-house-accent-color);
 }
 
 .slide-show-container > .slide-show-dots > .dot[data-dot-active="true"] {
-	background-color:#10273b;
+	background-color:var(--customs-house-main-color);
 }

@@ -48,19 +48,34 @@
 
 #nav-overlay-inner > .header-container > .customs-house-logo > a {
 	display:block;
+	width:1.7em;
 }
 
-#nav-overlay-inner > .header-container > .customs-house-logo > a > img {
-	width:1.7em;
+#nav-overlay-inner > .header-container > .customs-house-logo > a > svg {
+	width:100%;
 	height:auto;
 	display:block;
 }
 
+#nav-overlay-inner > .header-container > .customs-house-logo > a > svg {
+	fill: var(--customs-house-main-color);
+	transition:fill 0.5s;
+}
+
+#nav-overlay-inner > .header-container > .customs-house-logo > a:hover > svg {
+	fill: var(--customs-house-accent-color);	
+}
+
 #nav-overlay-inner > .header-container > .customs-house-text > a {
 	text-align:center;
-	color: #10273b;
+	color:var(--customs-house-main-color);
 	font-size:0.28em;
 	text-decoration:none;
+	transition:color 0.5s;
+}
+
+#nav-overlay-inner > .header-container > .customs-house-text > a:hover {
+	color:var(--customs-house-accent-color);
 }
 
 #nav-overlay-inner > .header-container > .customs-house-text > a::before {
@@ -86,12 +101,16 @@
 	margin-top:auto;
 	text-align:right;
 	position:relative;
-	color: #10273b;
 }
 
 #nav-overlay-inner > .header-container > .location-text a {
 	text-decoration:none;
-	color:inherit;
+	color:var(--customs-house-main-color);
+	transition:color 0.5s;
+}
+
+#nav-overlay-inner > .header-container > .location-text a:hover {
+	color:var(--customs-house-accent-color);
 }
 
 #nav-overlay-inner > .header-container > .location-text label {

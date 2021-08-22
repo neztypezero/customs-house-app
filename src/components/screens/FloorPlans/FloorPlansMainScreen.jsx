@@ -5,9 +5,9 @@ function FloorPlansMainScreen() {
 	return (
 		<>
 			<img className="full-size" src={mainFloorPlanImg} alt="The Customs House main floorplan." />
-			<Link className="customs-house-button urban" to="/floorplans/urban">Urban Collection</Link>
-			<Link className="customs-house-button harbour-view" to="/floorplans/harbour-view">Harbour View Collection</Link>
-			<Link className="customs-house-button suite-type" to="/floorplans/suite-type">Browse By Suite Type</Link>
+			<Link draggable="false" className="customs-house-button urban" to="/floorplans/urban">Urban Collection</Link>
+			<Link draggable="false" className="customs-house-button harbour-view" to="/floorplans/harbour-view">Harbour View Collection</Link>
+			<Link draggable="false" className="customs-house-button suite-type" to="/floorplans/suite-type">Browse By Suite Type</Link>
 		</>
 	);
 }
