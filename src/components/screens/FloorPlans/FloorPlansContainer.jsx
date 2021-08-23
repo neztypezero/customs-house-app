@@ -7,6 +7,7 @@ import LoadingSVG from "../../LoadingSVG/LoadingSVG";
 let ctx = require.context('../../../assets/img/floorplans', true);
 
 function FloorPlansContainer(props) {
+	const nodeRef = React.useRef(null);
 	const [levels, setLevels] = useState(null);
 	const [startTransition, setStartTransition] = useState(false);
 	const [currentLevelId, setCurrentLevelId] = useState("");
@@ -40,7 +41,7 @@ function FloorPlansContainer(props) {
 	if (!levels || loading) return <LoadingSVG />;
 
 	return (
-		<CSSTransition in={startTransition} timeout={1000} classNames="floor-plan-change" 
+		<CSSTransition nodeRef={nodeRef} in={startTransition} timeout={1000} classNames="floor-plan-change" 
 		onEntered={() => {
 			if (nextLevelId !== '') {
 				setCurrentLevelId(nextLevelId);
@@ -53,7 +54,7 @@ function FloorPlansContainer(props) {
 			setNextDirection("");
 			setStartTransition(false);
 		}}>
-			<div className="room-collection-container" data-animation-direction={nextDirection}>
+			<div ref={nodeRef} className="room-collection-container" data-animation-direction={nextDirection}>
 				<div className="room-collection-nav">
 					<ul className="level-list">
 					{levels.map((level, i) => (

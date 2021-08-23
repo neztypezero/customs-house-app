@@ -3,6 +3,7 @@ import { CSSTransition } from "react-transition-group";
 import SlideShowArrowSVG from "./SlideShowArrowSVG";
 
 function SlideShow(props) {
+	const nodeRef = React.useRef(null);
 	React.useEffect(() => {
 		const handleInput = (keyboardEvent) => {
 			if (keyboardEvent.keyCode === 37) {
@@ -34,7 +35,8 @@ function SlideShow(props) {
 	};
 
 	return (
-		<CSSTransition in={slideAnimate} timeout={1000} classNames={"slide-show"+(slideOffset===1?"-right":(slideOffset===-1?"-left":""))} 
+		<CSSTransition in={slideAnimate} timeout={1000}  nodeRef={nodeRef}
+		classNames={"slide-show"+(slideOffset===1?"-right":(slideOffset===-1?"-left":""))} 
 
 		onEntering={() => {
 			setSlideIndex(slideIndex+slideOffset);
@@ -47,7 +49,7 @@ function SlideShow(props) {
 				setSlideIndex(slideCount);
 			}
 		}}>
-			<div className="slide-show-container">
+			<div ref={nodeRef} className="slide-show-container">
 				{
 					(
 						props.children.length > 1?

@@ -17,16 +17,18 @@ const client = new ApolloClient({
 });
 
 const AnimatedScreenSwitch = withRouter(({ location }) => {
-	return <TransitionGroup>
-		<CSSTransition key={location.key} classNames="fade" timeout={1000}>
-			<Switch location={location}>
-				<Route path={screenSaverRoute.path} component={screenSaverRoute.component} />
-				{screenRoutes.map((route) => (
-					<Route key={route.path} path={route.path} component={route.component} />
-				))}
-			</Switch>
-		</CSSTransition>
-	</TransitionGroup>
+	return (
+		<TransitionGroup>
+			<CSSTransition key={location.key} classNames="fade" timeout={1000}>
+				<Switch location={location}>
+					<Route path={screenSaverRoute.path} component={screenSaverRoute.component} />
+					{screenRoutes.map((route) => (
+						<Route key={route.path} path={route.path} component={route.component} />
+					))}
+				</Switch>
+			</CSSTransition>
+		</TransitionGroup>
+	);
 });
 
 function App() {
@@ -75,15 +77,18 @@ function App() {
 						<div className="mainScreenWrapper">
 							<IntroScreen onClick={
 								(e) => {
-									let root = document.getElementById("root");
-									if (root.requestFullscreen) {
-										root.requestFullscreen();
-									} else if (root.webkitRequestFullscreen) { /* Old Safari */
-										root.webkitRequestFullscreen();
-									} else if (root.msRequestFullscreen) { /* IE11 */
-										root.msRequestFullscreen();
-									} else if (root.mozRequestFullscreen) { /* Old Firefox */
-										root.mozRequestFullscreen();
+									e.preventDefault();
+									if (!e.ctrlKey) {
+										let root = document.getElementById("root");
+										if (root.requestFullscreen) {
+											root.requestFullscreen();
+										} else if (root.webkitRequestFullscreen) { /* Old Safari */
+											root.webkitRequestFullscreen();
+										} else if (root.msRequestFullscreen) { /* IE11 */
+											root.msRequestFullscreen();
+										} else if (root.mozRequestFullscreen) { /* Old Firefox */
+											root.mozRequestFullscreen();
+										}
 									}
 									setIntroLoaded(true);
 								}
