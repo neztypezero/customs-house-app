@@ -1,9 +1,11 @@
 import './IntroScreen.css';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function IntroScreen(props) {
+	const history = useHistory();
+	history.replace('/');
 	return (
 		<div id="intro-screen-container" className="full-screen-container">
 			<div id="intro-screen-inner">

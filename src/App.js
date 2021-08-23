@@ -71,32 +71,29 @@ function App() {
 		);
 	} else {
 		return (
-			<ApolloProvider client={client}>
-				<BrowserRouter>
-					<div id="main">
-						<div className="mainScreenWrapper">
-							<IntroScreen onClick={
-								(e) => {
-									e.preventDefault();
-									if (!e.ctrlKey) {
-										let root = document.getElementById("root");
-										if (root.requestFullscreen) {
-											root.requestFullscreen();
-										} else if (root.webkitRequestFullscreen) { /* Old Safari */
-											root.webkitRequestFullscreen();
-										} else if (root.msRequestFullscreen) { /* IE11 */
-											root.msRequestFullscreen();
-										} else if (root.mozRequestFullscreen) { /* Old Firefox */
-											root.mozRequestFullscreen();
-										}
+			<BrowserRouter>
+				<div id="main">
+					<div className="mainScreenWrapper">
+						<IntroScreen onClick={
+							(e) => {
+								if (!e.ctrlKey) {
+									let root = document.getElementById("root");
+									if (root.requestFullscreen) {
+										root.requestFullscreen();
+									} else if (root.webkitRequestFullscreen) { /* Old Safari */
+										root.webkitRequestFullscreen();
+									} else if (root.msRequestFullscreen) { /* IE11 */
+										root.msRequestFullscreen();
+									} else if (root.mozRequestFullscreen) { /* Old Firefox */
+										root.mozRequestFullscreen();
 									}
-									setIntroLoaded(true);
 								}
-							} />
-						</div>
+								setIntroLoaded(true);
+							}
+						} />
 					</div>
-				</BrowserRouter>
-			</ApolloProvider>
+				</div>
+			</BrowserRouter>
 		);
 	}
 }
