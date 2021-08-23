@@ -22,12 +22,11 @@ function GalleryContainer(props) {
 	);
 
 	if (error) return <div>error</div>;
-	if (loading || !images) return <LoadingSVG />;
 
 	return (
 		<>
 			{(loading?<LoadingSVG />:<></>)}
-			<div className="slide-show-wrapper" data-loading={loading}>
+			<div className="gallery-slide-show-wrapper" data-loading={loading||images.length<1}>
 				{(loading||images.length<1?
 					<></>
 				:

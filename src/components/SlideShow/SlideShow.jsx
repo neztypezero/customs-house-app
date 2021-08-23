@@ -49,7 +49,7 @@ function SlideShow(props) {
 				setSlideIndex(slideCount);
 			}
 		}}>
-			<div ref={nodeRef} className="slide-show-container" data-loading={props['data-loading']}>
+			<div ref={nodeRef} className="slide-show-container">
 				{
 					(
 						props.children.length > 1?
