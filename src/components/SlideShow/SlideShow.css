@@ -3,12 +3,12 @@
 	width:100%;
 }
 
-.slide-show-container {
+.slide-show-wrapper {
 	opacity:1;
 	transition:opacity 1.0s;
 }
 
-.slide-show-container[data-loading="true"] {
+.slide-show-wrapper[data-loading="true"] {
 	opacity:0;
 }
 

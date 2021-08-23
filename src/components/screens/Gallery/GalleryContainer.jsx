@@ -22,13 +22,20 @@ function GalleryContainer(props) {
 	);
 
 	if (error) return <div>error</div>;
+	if (loading || !images) return <LoadingSVG />;
 
 	return (
 		<>
 			{(loading?<LoadingSVG />:<></>)}
-			<SlideShow data-loading={loading}>
-				{images.map(img => <img key={img.src} src={ctx('./'+img.src).default} alt={img.alt} />)}
-			</SlideShow>
+			<div className="slide-show-wrapper" data-loading={loading}>
+				{(loading?
+					<></>
+				:
+					<SlideShow>
+						{images.map(img => <img key={img.src} src={ctx('./'+img.src).default} alt={img.alt} />)}
+					</SlideShow>
+				)}
+			</div>
 		</>
 	);
 }
