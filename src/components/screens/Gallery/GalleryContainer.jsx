@@ -28,7 +28,7 @@ function GalleryContainer(props) {
 		<>
 			{(loading?<LoadingSVG />:<></>)}
 			<div className="slide-show-wrapper" data-loading={loading}>
-				{(loading?
+				{(loading||images.length<1?
 					<></>
 				:
 					<SlideShow>
