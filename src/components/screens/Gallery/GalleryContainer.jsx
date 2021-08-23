@@ -27,7 +27,7 @@ function GalleryContainer(props) {
 	return (
 		<>
 			{(loading?<LoadingSVG />:<></>)}
-			<div className="slide-show-wrapper" data-loading={loading}>
+			<div className="slide-show-wrapper" data-loading={loading&&images.length>1}>
 				{(loading||images.length<1?
 					<></>
 				:
