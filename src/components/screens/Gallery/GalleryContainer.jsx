@@ -6,7 +6,7 @@ import LoadingSVG from "../../LoadingSVG/LoadingSVG";
 let ctx = require.context('../../../assets/img/gallery', true);
 
 function GalleryContainer(props) {
-	const [images, setImages] = useState(null);
+	const [images, setImages] = useState([]);
 	const { loading, error } = useQuery(props.query, {
 			variables:props.variables,
 			onCompleted:(data) => {
@@ -22,12 +22,14 @@ function GalleryContainer(props) {
 	);
 
 	if (error) return <div>error</div>;
-	if (loading || !images) return <LoadingSVG />;
 
 	return (
-		<SlideShow>
-			{images.map(img => <img key={img.src} src={ctx('./'+img.src).default} alt={img.alt} />)}
-		</SlideShow>
+		<>
+			{(loading?<LoadingSVG />:<></>)}
+			<SlideShow data-loading={loading}>
+				{images.map(img => <img key={img.src} src={ctx('./'+img.src).default} alt={img.alt} />)}
+			</SlideShow>
+		</>
 	);
 }
 

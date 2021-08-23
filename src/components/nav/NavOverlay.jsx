@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import './NavOverlay.css';
 import NavLogoSVG from './NavLogoSVG';
+import navTransition from "./NavTransition";
 
 import {navRoutes, bottomNavRoutes} from "../screens/ScreenRoutes";
 
@@ -51,11 +52,12 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 	return <div id="nav-overlay-container" data-location={location.pathname}>
 		<div id="nav-overlay-inner">
 			<div className="header-container">
+				<navTransition.style />
 				<div className="customs-house-logo"><Link draggable="false" to="/"><NavLogoSVG /></Link></div>
 				<div className="customs-house-text"><Link draggable="false" to="/"></Link></div>
 				<div className="location-text">
 					<TransitionGroup>
-						<CSSTransition key={location.key} classNames="ani-text" timeout={1000}>
+						<CSSTransition key={location.key} classNames={navTransition.name} timeout={navTransition.duration}>
 							<Switch location={location}>
 								{navRoutes.map((route) => (
 									<Route key={route.path} path={route.path}>

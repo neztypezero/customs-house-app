@@ -52,7 +52,7 @@
 	box-sizing:border-box;
 	padding:1em;
 	text-decoration:none;
-	color:#fff;
+	color:var(--customs-house-main-light-color);
 	background-color: rgba(8, 39, 60, 0.5);
 	text-align:center;
 	text-transform:uppercase;

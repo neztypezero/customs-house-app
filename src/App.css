@@ -1,5 +1,8 @@
 :root {
 	--customs-house-main-color:#10273b;
+	--customs-house-main-light-color:#fff;
+	--customs-house-main-bg-color:#fff;
+	--customs-house-main-bg-transparent-color:#fffd;
 	--customs-house-accent-color:#c78e71;
 }
 
@@ -35,7 +38,7 @@ body {
 .mainScreenWrapper {
 	position:relative;
 	padding-top:56.25%;
-	background-color:#fff;
+	background-color:var(--customs-house-main-bg-color);
 }
 
 .full-screen-container {
@@ -47,7 +50,6 @@ body {
 	background-repeat:no-repeat;
 	background-position: center;
 	background-size: 100% auto;
-	transition:opacity 1s;
 }
 
 .full-screen-container > .full-screen-inner {
@@ -65,38 +67,26 @@ body {
 	position:relative;
 }
 
-.full-screen-container.fade-exit {
-	opacity:0;
-}
-
-.full-screen-container.fade-enter {
-	opacity:0;
-}
-
-.full-screen-container.fade-enter-active {
-	opacity:1;
-}
-
 .customs-house-button {
 	border:solid 1px var(--customs-house-accent-color);
 	text-decoration:none;
 	text-transform: uppercase;
 	padding:0.5em 1.5em;
 	color:var(--customs-house-main-color);
-	background-color:#fffb;
+	background-color:var(--customs-house-main-bg-transparent-color);
 	transition:color 0.5s, background-color 1s;
 	display:block;
 }
 
 .customs-house-button:hover {
-	color:#fff;
+	color:var(--customs-house-main-light-color);
 	background-color:var(--customs-house-accent-color);
 }
 
 .customs-house-button[data-is-active="true"] {
 	background-color:var(--customs-house-main-color);
-	border: solid 1px var(--customs-house-main-color);
-	color: #fff;
+	border:solid 1px var(--customs-house-main-color);
+	color:var(--customs-house-main-light-color);
 }
 
 .customs-house-loading-icon {

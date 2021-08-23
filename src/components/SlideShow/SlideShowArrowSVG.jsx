@@ -10,9 +10,7 @@ function SlideShowArrowSVG(props) {
 					<feComposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
 				</filter>
 			</defs>
-			<g fill="#FFFFFF">
-				<path style={{filter:"url(#"+props.id+")"}} d={props.d} />
-			</g>
+			<g><path style={{filter:"url(#"+props.id+")"}} d={props.d} /></g>
 		</svg>
 	);
 }

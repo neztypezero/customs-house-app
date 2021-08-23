@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { CSSTransition } from "react-transition-group";
 import { useQuery } from "@apollo/client";
 
+import floorPlansTransition from "./FloorPlansTransition";
 import LoadingSVG from "../../LoadingSVG/LoadingSVG";
 let ctx = require.context('../../../assets/img/floorplans', true);
 
 function FloorPlansContainer(props) {
 	const nodeRef = React.useRef(null);
-	const [levels, setLevels] = useState(null);
+	const [levels, setLevels] = useState([]);
 	const [startTransition, setStartTransition] = useState(false);
 	const [currentLevelId, setCurrentLevelId] = useState("");
 	const [currentFloorPlanId, setCurrentFloorPlanId] = useState("");
@@ -38,10 +39,9 @@ function FloorPlansContainer(props) {
 	);
 
 	if (error) return <div>error</div>;
-	if (!levels || loading) return <LoadingSVG />;
 
 	return (
-		<CSSTransition nodeRef={nodeRef} in={startTransition} timeout={1000} classNames="floor-plan-change" 
+		<CSSTransition nodeRef={nodeRef} in={startTransition} timeout={floorPlansTransition.duration} classNames={floorPlansTransition.name} 
 		onEntered={() => {
 			if (nextLevelId !== '') {
 				setCurrentLevelId(nextLevelId);
@@ -54,7 +54,8 @@ function FloorPlansContainer(props) {
 			setNextDirection("");
 			setStartTransition(false);
 		}}>
-			<div ref={nodeRef} className="room-collection-container" data-animation-direction={nextDirection}>
+			<div ref={nodeRef} className="room-collection-container" data-loading={loading} data-animation-direction={nextDirection}>
+				{(loading?<LoadingSVG />:<></>)}
 				<div className="room-collection-nav">
 					<ul className="level-list">
 					{levels.map((level, i) => (

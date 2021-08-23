@@ -7,7 +7,7 @@
 #nav-overlay-inner > .header-container,
 #nav-overlay-inner > .bottom-nav-container {
 	transition:transform 1s;
-	background-color:#fff;
+	background-color:var(--customs-house-main-bg-color);
 	box-sizing:border-box;
 }
 
@@ -117,20 +117,6 @@
 	position:absolute;
 	right:0;
 	bottom:0;
-	transition:opacity 0.5s, letter-spacing 1s;
-}
-
-#nav-overlay-inner > .header-container > .location-text label.ani-text-enter,
-#nav-overlay-inner > .header-container > .location-text label.ani-text-exit-active,
-#nav-overlay-inner > .header-container > .location-text label.ani-text-exit {
-	opacity:0;
-	letter-spacing:-0.4em;
-}
-
-#nav-overlay-inner > .header-container > .location-text label.ani-text-enter-active,
-#nav-overlay-inner > .header-container > .location-text label.ani-text-enter-done {
-	opacity:1;
-	letter-spacing:inherit;
 }
 
 #nav-overlay-inner > .bottom-nav-container {

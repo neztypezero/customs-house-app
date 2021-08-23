@@ -10,6 +10,7 @@ import {screenSaverRoute} from "./components/screens/ScreenRoutes";
 import IntroScreen from "./components/screens/IntroScreen/IntroScreen";
 
 import NavOverlay from "./components/nav/NavOverlay";
+import screenTransition from "./components/screens/ScreenTransition";
 
 const client = new ApolloClient({
 	uri:"https://customs-house-server-b08tz4al8-neztypezero.vercel.app/graphql",
@@ -19,7 +20,7 @@ const client = new ApolloClient({
 const AnimatedScreenSwitch = withRouter(({ location }) => {
 	return (
 		<TransitionGroup>
-			<CSSTransition key={location.key} classNames="fade" timeout={1000}>
+			<CSSTransition key={location.key} classNames={screenTransition.name} timeout={screenTransition.duration}>
 				<Switch location={location}>
 					<Route path={screenSaverRoute.path} component={screenSaverRoute.component} />
 					{screenRoutes.map((route) => (
@@ -62,6 +63,7 @@ function App() {
 				<BrowserRouter>
 					<div id="main">
 						<div className="mainScreenWrapper">
+							<screenTransition.style />
 							<AnimatedScreenSwitch />
 							<NavOverlay />
 						</div>
@@ -76,6 +78,7 @@ function App() {
 					<div className="mainScreenWrapper">
 						<IntroScreen onClick={
 							(e) => {
+								e.preventDefault();
 								if (!e.ctrlKey) {
 									let root = document.getElementById("root");
 									if (root.requestFullscreen) {
