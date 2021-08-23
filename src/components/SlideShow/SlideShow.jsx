@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CSSTransition } from "react-transition-group";
 import SlideShowArrowSVG from "./SlideShowArrowSVG";
+import slideShowTransition from "./SlideShowTransition";
 
 function SlideShow(props) {
 	const nodeRef = React.useRef(null);
@@ -35,8 +36,8 @@ function SlideShow(props) {
 	};
 
 	return (
-		<CSSTransition in={slideAnimate} timeout={1000}  nodeRef={nodeRef}
-		classNames={"slide-show"+(slideOffset===1?"-right":(slideOffset===-1?"-left":""))} 
+		<CSSTransition in={slideAnimate} timeout={slideShowTransition.duration}  nodeRef={nodeRef}
+		classNames={slideShowTransition.name+(slideOffset===1?"-right":(slideOffset===-1?"-left":""))} 
 
 		onEntering={() => {
 			setSlideIndex(slideIndex+slideOffset);
