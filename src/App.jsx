@@ -79,18 +79,18 @@ function App() {
 						<IntroScreen onClick={
 							(e) => {
 								e.preventDefault();
-								// if (!e.ctrlKey) {
-								// 	let root = document.getElementById("root");
-								// 	if (root.requestFullscreen) {
-								// 		root.requestFullscreen();
-								// 	} else if (root.webkitRequestFullscreen) { /* Old Safari */
-								// 		root.webkitRequestFullscreen();
-								// 	} else if (root.msRequestFullscreen) { /* IE11 */
-								// 		root.msRequestFullscreen();
-								// 	} else if (root.mozRequestFullscreen) { /* Old Firefox */
-								// 		root.mozRequestFullscreen();
-								// 	}
-								// }
+								if (!e.shiftKey) {
+									let root = document.getElementById("root");
+									if (root.requestFullscreen) {
+										root.requestFullscreen();
+									} else if (root.webkitRequestFullscreen) { /* Old Safari */
+										root.webkitRequestFullscreen();
+									} else if (root.msRequestFullscreen) { /* IE11 */
+										root.msRequestFullscreen();
+									} else if (root.mozRequestFullscreen) { /* Old Firefox */
+										root.mozRequestFullscreen();
+									}
+								}
 								setIntroLoaded(true);
 							}
 						} />
