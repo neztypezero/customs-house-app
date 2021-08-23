@@ -58,4 +58,9 @@ ul#main-links-list > li > a {
 	color:#fff;
 	text-decoration:none;
 	text-transform: uppercase;
+	transition:color 0.5s;
+}
+
+ul#main-links-list > li > a:hover {
+	color:var(--customs-house-accent-color);
 }

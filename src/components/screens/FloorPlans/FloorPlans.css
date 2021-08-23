@@ -6,7 +6,7 @@
 	width:100%;
 	height:100%;
 }
-
+/*
 #floor-plans-screen-container #floor-plans-screen-inner::after {
 	content:'';
 	bottom:0;
@@ -20,7 +20,7 @@
 	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
 	mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
 }
-
+*/
 #floor-plans-screen-container .customs-house-button {
 	position:absolute;
 	font-size:0.9em;
