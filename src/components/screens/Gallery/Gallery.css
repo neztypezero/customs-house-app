@@ -28,6 +28,7 @@
 }
 
 .large-gallery-button {
+	font-family:var(--customs-house-title-font);
 	flex:0 0 24.5%;
 	display:block;
 	height:100%;
