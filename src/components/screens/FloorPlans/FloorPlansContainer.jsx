@@ -79,7 +79,7 @@ function FloorPlansContainer(props) {
 					<div className="room-container">
 					{levels.map((level, i) => {
 						let floorPlanObj = {};
-						return <ul key={level.id} className="room-list" data-current={level.id===currentLevelId} data-next={level.id===nextLevelId}>
+						return <div key={level.id} className="room-list-container"><ul className="room-list" data-current={level.id===currentLevelId} data-next={level.id===nextLevelId}>
 						{level.floorPlans.map((floorPlan, j) => {
 							if (!floorPlanObj[floorPlan.name]) {
 								floorPlanObj[floorPlan.name] = floorPlan;
@@ -101,7 +101,7 @@ function FloorPlansContainer(props) {
 								return <li key={floorPlan.id} className="no-name"></li>
 							}
 						})}
-						</ul>
+						</ul></div>
 					})}
 					</div>
 				</div>
