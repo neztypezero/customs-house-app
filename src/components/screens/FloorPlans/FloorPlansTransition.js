@@ -2,8 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const name = "floor-plan-change";
 const duration = 1000;
-const tf1 = "cubic-bezier(0.7,0,0.3,1)";
-const tf2 = "cubic-bezier(0.2,1,0.3,1)";
 const propsList = [
 	{
 		cssProperty:'left',
@@ -31,8 +29,8 @@ const propsList = [
 		kickbackTranslate:"0, -105%",
 	},
 ];
-let css = "";
 
+let css = "";
 for (const props of propsList) {
 	css += `
 		.room-collection-container.${name}-enter-active[data-animation-direction="${props.direction}"] .room-floor-plan-container img[data-current="true"] {
@@ -52,12 +50,11 @@ for (const props of propsList) {
 		@keyframes room-collection-slide-${props.direction}-animation {
 			25% {
 				transform: translate(${(props.kickbackTranslate)});
-				animation-timing-function:${tf1};
+				animation-timing-function:var(--customs-house-animation-tf1);
 			}
-
 			100% {
 				transform: translate(0, 0);
-				animation-timing-function:${tf2};
+				animation-timing-function:var(--customs-house-animation-tf2);
 			}
 		}
 	`;

@@ -18,7 +18,17 @@
 	width:100%;
 }
 
+#gallery-screen-inner > .padding .gallery-slide-show-wrapper {
+	opacity:1;
+	transition:opacity 1.0s;
+}
+
+#gallery-screen-inner > .padding .gallery-slide-show-wrapper[data-loading="true"] {
+	opacity:0;
+}
+
 .large-gallery-button {
+	font-family:var(--customs-house-title-font);
 	flex:0 0 24.5%;
 	display:block;
 	height:100%;

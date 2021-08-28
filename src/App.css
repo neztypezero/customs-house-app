@@ -1,9 +1,14 @@
 :root {
+	--customs-house-title-font:Chronicle, sans-serif;
+	--customs-house-subtitle-font:Knockout, serif;
+	--customs-house-text-font:AvenirNext, sans-serif;
 	--customs-house-main-color:#10273b;
 	--customs-house-main-light-color:#fff;
 	--customs-house-main-bg-color:#fff;
 	--customs-house-main-bg-transparent-color:#fffd;
 	--customs-house-accent-color:#c78e71;
+	--customs-house-animation-tf1:cubic-bezier(0.7,0,0.3,1);
+	--customs-house-animation-tf2:cubic-bezier(0.2,1,0.3,1);
 }
 
 @font-face { 
@@ -25,9 +30,11 @@ body {
 	margin:0;
 	padding:0;
 	font-size:2vw;
-	font-family:Chronicle;
+	font-family:var(--customs-house-text-font);
 	letter-spacing:0.1em;
 	background-color: gainsboro;
+	height:100vh;
+	overflow:hidden;
 }
 
 #main {
@@ -68,6 +75,7 @@ body {
 }
 
 .customs-house-button {
+	font-family:var(--customs-house-title-font);
 	border:solid 1px var(--customs-house-accent-color);
 	text-decoration:none;
 	text-transform: uppercase;
