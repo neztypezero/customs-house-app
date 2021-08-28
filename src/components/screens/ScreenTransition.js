@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const name = "screen-fade";
+const name = "customs-house-screen-fade";
 const duration = 1000;
 const transition = {
 	name,

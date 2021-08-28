@@ -7,11 +7,10 @@
 	opacity:1;
 	transition:opacity 1.0s;
 	height:100%;
-	background-color:orange;
 }
 
 .slide-show-wrapper[data-loading="true"] {
-	opacity:1;
+	opacity:0;
 }
 
 .slide-show-container > .slide-show-viewport {

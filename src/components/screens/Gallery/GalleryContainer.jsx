@@ -6,35 +6,36 @@ import LoadingSVG from "../../LoadingSVG/LoadingSVG";
 let ctx = require.context('../../../assets/img/gallery', true);
 
 function GalleryContainer(props) {
-	const [images, setImages] = useState([]);
+	const [images, setImages] = useState([{src:"",alt:""}]);
 	const { loading, error } = useQuery(props.query, {
 			variables:props.variables,
 			onCompleted:(data) => {
 				let galleries = null;
 				if (data.galleries && data.galleries.length > 0) {
 					galleries = data.galleries[0];
+					let imageList = [];
 					if (galleries.images && galleries.images.length > 0) {
-						setImages(galleries.images);
+						for (let img of galleries.images) {
+							imageList.push({
+								src:ctx('./'+img.src).default,
+								alt:img.alt,
+							});
+						}
+						setImages(imageList);
 					}
 				}
 			}
 		}
 	);
+	const isLoading = () => (loading||images.length<1);
 
 	if (error) return <div>error</div>;
-	if (loading || !images) return <LoadingSVG />;
 
 	return (
 		<>
-			{(loading?<LoadingSVG />:<></>)}
-			<div className="slide-show-wrapper" data-loading={loading&&images.length>1}>
-				{(loading||images.length<1?
-					<></>
-				:
-					<SlideShow>
-						{images.map(img => <img key={img.src} src={ctx('./'+img.src).default} alt={img.alt} />)}
-					</SlideShow>
-				)}
+			{(isLoading()?<LoadingSVG />:<></>)}
+			<div className="slide-show-wrapper" data-loading={isLoading()}>
+				<SlideShow images={images} />
 			</div>
 		</>
 	);
