@@ -16,6 +16,16 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
+const MainRouter = (props) => (
+	<BrowserRouter>
+		<div id="main">
+			<div className="mainScreenWrapper">
+				{props.children}
+			</div>
+		</div>
+	</BrowserRouter>
+);
+
 const AnimatedScreenSwitch = withRouter(({ location }) => {
 	return (
 		<TransitionGroup>
@@ -29,21 +39,6 @@ const AnimatedScreenSwitch = withRouter(({ location }) => {
 		</TransitionGroup>
 	);
 });
-
-const requestFullScreen = (queryString) => {
-	let element = document.querySelector(queryString);
-	if (element) {
-		if (element.requestFullscreen) {
-			element.requestFullscreen();
-		} else if (element.webkitRequestFullscreen) { /* Old Safari */
-			element.webkitRequestFullscreen();
-		} else if (element.msRequestFullscreen) { /* IE11 */
-			element.msRequestFullscreen();
-		} else if (element.mozRequestFullscreen) { /* Old Firefox */
-			element.mozRequestFullscreen();
-		}
-	}
-}
 
 function App() {
 	React.useEffect(() => {
@@ -69,37 +64,42 @@ function App() {
 	});
 
 	const [introLoaded, setIntroLoaded] = useState(false);
+
+	const enterCustomsHouse = (e) => {
+		e.preventDefault();
+		if (!e.shiftKey) {
+			let main = document.getElementById("main");
+			if (main) {
+				let element = main.parentNode;
+				if (element.requestFullscreen) {
+					element.requestFullscreen();
+				} else if (element.webkitRequestFullscreen) { /* Old Safari */
+					element.webkitRequestFullscreen();
+				} else if (element.msRequestFullscreen) { /* IE11 */
+					element.msRequestFullscreen();
+				} else if (element.mozRequestFullscreen) { /* Old Firefox */
+					element.mozRequestFullscreen();
+				}
+			}
+		}
+		setIntroLoaded(true);
+	};
+
 	if(introLoaded) {
 		return (
 			<ApolloProvider client={client}>
-				<BrowserRouter>
-					<div id="main">
-						<div className="mainScreenWrapper">
-							<screenTransition.style />
-							<AnimatedScreenSwitch />
-							<NavOverlay />
-						</div>
-					</div>
-				</BrowserRouter>
+				<MainRouter>
+					<screenTransition.style />
+					<AnimatedScreenSwitch />
+					<NavOverlay />
+				</MainRouter>
 			</ApolloProvider>
 		);
 	} else {
 		return (
-			<BrowserRouter>
-				<div id="main">
-					<div className="mainScreenWrapper">
-						<IntroScreen onClick={
-							(e) => {
-								e.preventDefault();
-								if (!e.shiftKey) {
-									requestFullScreen("#root");
-								}
-								setIntroLoaded(true);
-							}
-						} />
-					</div>
-				</div>
-			</BrowserRouter>
+			<MainRouter>
+				<IntroScreen onClick={(e) => { enterCustomsHouse(e); }} />
+			</MainRouter>
 		);
 	}
 }
