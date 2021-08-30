@@ -9,7 +9,7 @@
 	text-align: center;
 	width: 74%;
 	height: 67%;
-	border: solid 2px var(--customs-house-main-bg-transparent-color);
+	border: solid 0.054em var(--customs-house-main-bg-transparent-color);
 	background-color: rgba(8, 39, 60, 0.8);
 }
 
