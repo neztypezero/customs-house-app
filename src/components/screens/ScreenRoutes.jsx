@@ -47,7 +47,7 @@ const viewRoute = {
 
 const screenSaverRoute = {
 	component:ScreenSaver,
-	path:rootRoute.path+'screenSaver/',
+	path:rootRoute.path+'screen-saver/',
 	text:''
 };
 
