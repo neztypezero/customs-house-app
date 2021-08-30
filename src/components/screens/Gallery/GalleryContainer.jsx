@@ -33,7 +33,7 @@ function GalleryContainer(props) {
 
 	return (
 		<>
-			{(isLoading()?<LoadingSVG />:<></>)}
+			{(isLoading?<LoadingSVG mainColor="#10273b" accentColor="#c78e71" />:<></>)}
 			<div className="slide-show-wrapper" data-loading={isLoading()}>
 				<SlideShow images={images} />
 			</div>

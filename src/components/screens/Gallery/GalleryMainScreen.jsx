@@ -1,26 +1,27 @@
 import { Link } from 'react-router-dom';
 
-let ctx = require.context('../../../assets/img/backgrounds', true);
+import buildingSrc from "../../../assets/img/backgrounds/SC1Buttons_1.jpg";
+import suiteSrc from "../../../assets/img/backgrounds/SC1Buttons_2.jpg";
+import historySrc from "../../../assets/img/backgrounds/SC1Buttons_3.jpg";
+import movieSrc from "../../../assets/img/backgrounds/SC1Buttons_4.jpg";
+
+import { galleryRoutes } from "../ScreenRoutes";
 
 const linkList = [
 	{
-		to:"/gallery/building",
-		src:ctx('./SC1Buttons_1.jpg').default,
+		src:buildingSrc,
 		alt:'Building Gallery',
 		label:'Building'
 	},{
-		to:"/gallery/suite",
-		src:ctx('./SC1Buttons_2.jpg').default,
+		src:suiteSrc,
 		alt:'Suite Gallery',
 		label:'Suite'
 	},{
-		to:"/gallery/history",
-		src:ctx('./SC1Buttons_3.jpg').default,
+		src:historySrc,
 		alt:'History Gallery',
 		label:'History'
 	},{
-		to:"/gallery/movie",
-		src:ctx('./SC1Buttons_4.jpg').default,
+		src:movieSrc,
 		alt:'Customs House Promo Video',
 		label:'Movie'
 	},
@@ -38,8 +39,8 @@ function GalleryLink({to, src, alt, label}) {
 function GalleryMainScreen() {
 	return (
 		<>
-			{linkList.map((link) => (
-				<GalleryLink key={link.to} to={link.to} src={link.src} alt={link.alt} label={link.label}/>
+			{linkList.map((link, i) => (
+				<GalleryLink key={galleryRoutes[i].path} to={galleryRoutes[i].path} src={link.src} alt={link.alt} label={link.label}/>
 			))}
 		</>
 	);

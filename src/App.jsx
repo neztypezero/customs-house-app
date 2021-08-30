@@ -6,7 +6,6 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import {screenRoutes} from "./components/screens/ScreenRoutes";
-import {screenSaverRoute} from "./components/screens/ScreenRoutes";
 import IntroScreen from "./components/screens/IntroScreen/IntroScreen";
 
 import NavOverlay from "./components/nav/NavOverlay";
@@ -22,7 +21,6 @@ const AnimatedScreenSwitch = withRouter(({ location }) => {
 		<TransitionGroup>
 			<CSSTransition key={location.key} classNames={screenTransition.name} timeout={screenTransition.duration}>
 				<Switch location={location}>
-					<Route path={screenSaverRoute.path} component={screenSaverRoute.component} />
 					{screenRoutes.map((route) => (
 						<Route key={route.path} path={route.path} component={route.component} />
 					))}
@@ -50,10 +48,9 @@ const requestFullScreen = (queryString) => {
 function App() {
 	React.useEffect(() => {
 		const handleResize = () => {
-			const root = document.getElementById('root');
 			const main = document.getElementById('main');
 			if (main) {
-				let { height } = root.getBoundingClientRect();
+				let { height } = main.parentNode.getBoundingClientRect();
 				if (height > window.innerHeight) {
 					let scale = window.innerHeight/height;
 					main.style.transform = "scale("+scale+")";

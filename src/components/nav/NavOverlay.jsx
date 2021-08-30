@@ -1,12 +1,13 @@
+import './NavOverlay.css';
+
 import React from 'react';
 import { Link, Route, Switch, withRouter, useHistory } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import './NavOverlay.css';
 import NavLogoSVG from './NavLogoSVG';
 import navTransition from "./NavTransition";
 
-import {navRoutes, bottomNavRoutes} from "../screens/ScreenRoutes";
+import {rootRoute, allRoutes, navRoutes} from "../screens/ScreenRoutes";
 
 const AnimatedNavOverlay = withRouter(({ location }) => {
 	const history = useHistory();
@@ -24,15 +25,15 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 		}
 		const handleInput = () => {
 			timeSinceLastInput = 0;
-			if (location.pathname.startsWith('/screenSaver')) {
+			if (location.pathname.startsWith(rootRoute.childRoutes.screenSaverRoute.path)) {
 				unload();
 				history.goBack();
 			}
 		};
 		let timeout = setInterval(() => {
-			if (!location.pathname.startsWith('/screenSaver')) {
+			if (!location.pathname.startsWith(rootRoute.childRoutes.screenSaverRoute.path)) {
 				if (timeSinceLastInput >= 300) {
-					history.push('/screenSaver');
+					history.push(rootRoute.childRoutes.screenSaverRoute.path);
 				}
 			}
 			timeSinceLastInput += 1;
@@ -53,13 +54,13 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 		<div id="nav-overlay-inner">
 			<div className="header-container">
 				<navTransition.style />
-				<div className="customs-house-logo"><Link draggable="false" to="/"><NavLogoSVG /></Link></div>
-				<div className="customs-house-text"><Link draggable="false" to="/"></Link></div>
+				<div className="customs-house-logo"><Link draggable="false" to={rootRoute.path}><NavLogoSVG /></Link></div>
+				<div className="customs-house-text"><Link draggable="false" to={rootRoute.path}></Link></div>
 				<div className="location-text">
 					<TransitionGroup>
 						<CSSTransition key={location.key} classNames={navTransition.name} timeout={navTransition.duration}>
 							<Switch location={location}>
-								{navRoutes.map((route) => (
+								{allRoutes.map((route) => (
 									<Route key={route.path} path={route.path}>
 										<label>{route.text}</label>
 									</Route>
@@ -71,8 +72,8 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 			</div>
 			<div className="bottom-nav-container">
 				<ul id="nav-links-list">
-				{bottomNavRoutes.map((route) => (
-					<li key={"bnav-"+route.path} className={route.text.toLowerCase()}><Link draggable="false" className="customs-house-button" to={route.path} data-is-active={isActive(route.path)}>{route.text}</Link></li>
+				{navRoutes.map((route) => (
+					<li key={"bnav-"+route.path}><Link draggable="false" className="customs-house-button" to={route.path} data-is-active={isActive(route.path)}>{route.text}</Link></li>
 				))}
 				</ul>
 				</div>

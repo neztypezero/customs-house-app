@@ -4,7 +4,7 @@ import '../../SlideShow/SlideShow.css';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import GalleryMainScreen from "./GalleryMainScreen";
-import { galleryRoutes } from "../ScreenRoutes";
+import { rootRoute, galleryRoutes } from "../ScreenRoutes";
 import slideShowTransition from "../../SlideShow/SlideShowTransition";
 
 const Gallery = withRouter(({ location }) => {
@@ -17,7 +17,7 @@ const Gallery = withRouter(({ location }) => {
 						{galleryRoutes.map((route) => (
 							<Route key={route.path} path={route.path} component={route.component} />
 						))}
-						<Route key='/gallery' path='/gallery' component={GalleryMainScreen} />
+						<Route key={rootRoute.childRoutes.galleryRoute.path} path={rootRoute.childRoutes.galleryRoute.path} component={GalleryMainScreen} />
 					</Switch>
 				</div>
 			</div>

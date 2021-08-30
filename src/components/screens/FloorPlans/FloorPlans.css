@@ -171,7 +171,3 @@
 	left:0;
 	top:-100%;
 }
-
-#nav-overlay-container[data-location^="/floorplans"] #nav-overlay-inner .bottom-nav-container {
-	background-color:transparent;
-}

@@ -1,12 +1,16 @@
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function GalleryMovie(props) {
+	const history = useHistory();
+	const onMovieClick = (e) => {
+		e.preventDefault();
+		history.goBack();
+	}
+
 	return (
-		<Link draggable="false" className="movie-link" to="/gallery">
-			<video id="gallerymovie" width="1920" height="1080" loop="loop" autoPlay="autoPlay" muted="muted">
-				<source src="https://neilsondigital1.com/ch_touch/movie/CH_Video_2017.mp4" type="video/mp4" />
-			</video>
-		</Link>
+		<video onClick={(e) => {onMovieClick(e)}} id="gallerymovie" width="1920" height="1080" loop="loop" autoPlay="autoPlay" muted="muted">
+			<source src="https://neilsondigital1.com/ch_touch/movie/CH_Video_2017.mp4" type="video/mp4" />
+		</video>
 	);
 }
 

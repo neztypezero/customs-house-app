@@ -33,7 +33,6 @@ body {
 	font-family:var(--customs-house-text-font);
 	letter-spacing:0.1em;
 	background-color: gainsboro;
-	height:100vh;
 	overflow:hidden;
 }
 

@@ -1,7 +1,8 @@
+import './MainScreen.css';
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import './MainScreen.css';
+import { navRoutes } from "../ScreenRoutes";
 
 function MainScreen() {
 	return (
@@ -11,10 +12,9 @@ function MainScreen() {
 				<h1>Customs</h1>
 				<h2>House</h2>
 				<ul id="main-links-list">
-					<li><Link draggable="false" to="/gallery">Gallery</Link></li>
-					<li><Link draggable="false" to="/floorplans">Floorplans</Link></li>
-					<li><Link draggable="false" to="/view">View</Link></li>
-					<li><Link draggable="false" to="/location">Location</Link></li>
+					{navRoutes.map((route) => (
+						<li key={route.path}><Link draggable="false" to={route.path}>{route.text}</Link></li>
+					))}
 				</ul>
 			</div>
 		</div>

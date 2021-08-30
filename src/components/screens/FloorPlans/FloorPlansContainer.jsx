@@ -55,7 +55,7 @@ function FloorPlansContainer(props) {
 			setStartTransition(false);
 		}}>
 			<div ref={nodeRef} className="room-collection-container" data-loading={loading} data-animation-direction={nextDirection}>
-				{(loading?<LoadingSVG />:<></>)}
+				{(loading?<LoadingSVG mainColor="#10273b" accentColor="#c78e71" />:<></>)}
 				<div className="room-collection-nav">
 					<ul className="level-list">
 					{levels.map((level, i) => (

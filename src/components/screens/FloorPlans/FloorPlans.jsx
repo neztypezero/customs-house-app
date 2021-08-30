@@ -3,7 +3,7 @@ import './FloorPlans.css';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import FloorPlansMainScreen from "./FloorPlansMainScreen";
-import {floorPlanRoutes} from "../../screens/ScreenRoutes";
+import { rootRoute, floorPlansRoutes } from "../../screens/ScreenRoutes";
 import floorPlansTransition from "./FloorPlansTransition";
 
 const FloorPlans = withRouter(({ location }) => {
@@ -13,10 +13,10 @@ const FloorPlans = withRouter(({ location }) => {
 				<div className="padding">
 					<floorPlansTransition.style />
 					<Switch location={location}>
-						{floorPlanRoutes.map((route) => (
+						{floorPlansRoutes.map((route) => (
 							<Route key={route.path} path={route.path} component={route.component} />
 						))}
-						<Route key='/floorplans' path='/floorplans' component={FloorPlansMainScreen} />
+						<Route key={rootRoute.childRoutes.floorPlansRoute.path} path={rootRoute.childRoutes.floorPlansRoute.path} component={FloorPlansMainScreen} />
 					</Switch>
 				</div>
 			</div>
