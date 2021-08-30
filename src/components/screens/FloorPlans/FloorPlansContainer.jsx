@@ -62,7 +62,7 @@ function FloorPlansContainer(props) {
 						<li key={level.id}>
 							<Link draggable="false" data-current={level.id===currentLevelId} data-next={level.id===nextLevelId} to="#" onClick={(e) => {
 								e.preventDefault();
-								if (level.id !== currentLevelId) {
+								if (!startTransition && level.id !== currentLevelId) {
 									setNextLevelId(level.id);
 									setNextFloorPlanId(level.floorPlans[0].id);
 									if (level.id > currentLevelId) {
@@ -86,7 +86,7 @@ function FloorPlansContainer(props) {
 								return <li key={floorPlan.id}>
 									<Link draggable="false" data-current={floorPlan.id===currentFloorPlanId} data-next={floorPlan.id===nextFloorPlanId} to="#" onClick={(e) => {
 										e.preventDefault();
-										if (floorPlan.id !== currentFloorPlanId) {
+										if (!startTransition && floorPlan.id !== currentFloorPlanId) {
 											setNextFloorPlanId(floorPlan.id);
 											if (floorPlan.id > currentFloorPlanId) {
 												setNextDirection('left');
