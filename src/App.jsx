@@ -51,7 +51,7 @@ function App() {
 			const main = document.getElementById('main');
 			if (main) {
 				let { height } = main.parentNode.getBoundingClientRect();
-				if (height > window.innerHeight) {
+				if (height > window.innerHeight && height > 0) {
 					let scale = window.innerHeight/height;
 					main.style.transform = "scale("+scale+")";
 				} else {
