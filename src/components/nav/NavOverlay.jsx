@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import NavLogoSVG from './NavLogoSVG';
 import navTransition from "./NavTransition";
+import NavOverlayBreadCrumb from "./NavOverlayBreadCrumb";
 
 import {rootRoute, allRoutes, navRoutes} from "../screens/ScreenRoutes";
 
@@ -62,7 +63,7 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 							<Switch location={location}>
 								{allRoutes.map((route) => (
 									<Route key={route.path} path={route.path}>
-										<label>{route.text}</label>
+										<NavOverlayBreadCrumb path={route.path} />
 									</Route>
 								))}
 							</Switch>

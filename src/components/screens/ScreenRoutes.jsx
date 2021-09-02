@@ -68,25 +68,25 @@ const screenRoutes = [
 const buildingRoute = {
 	component:GalleryBuilding,
 	path:galleryRoute.path+'building/',
-	text: <span><Link draggable="false" to={galleryRoute.path}>gallery</Link> | building</span>,
+	text: 'building',
 };
 
 const suiteRoute = {
 	component:GallerySuite,
 	path:galleryRoute.path+'suite/',
-	text: <span><Link draggable="false" to={galleryRoute.path}>gallery</Link> | suite</span>,
+	text: 'suite',
 };
 
 const historyRoute = {
 	component:GalleryHistory,
 	path:galleryRoute.path+'history/',
-	text: <span><Link draggable="false" to={galleryRoute.path}>gallery</Link> | history</span>,
+	text: 'history',
 };
 
 const movieRoute = {
 	component:GalleryMovie,
 	path:galleryRoute.path+'movie/',
-	text: <span><Link draggable="false" to={galleryRoute.path}>gallery</Link> | movie</span>,
+	text: 'movie',
 };
 
 galleryRoute.childRoutes = {
@@ -100,19 +100,19 @@ const galleryRoutes = [
 const urbanRoute = {
 	component:FloorPlansUrban,
 	path:floorPlansRoute.path+'urban/',
-	text: <span><Link draggable="false" to={floorPlansRoute.path}>floorplans</Link> | urban collection</span>,
+	text: 'urban collection',
 };
 
 const harbourViewRoute = {
 	component:FloorPlansHarbourView,
 	path:floorPlansRoute.path+'harbour-view/',
-	text: <span><Link draggable="false" to={floorPlansRoute.path}>floorplans</Link> | harbour view collection</span>,
+	text: 'harbour view collection',
 };
 
 const suiteTypeRoute = {
 	component:FloorPlansSuite,
 	path:floorPlansRoute.path+'suite/',
-	text: <span><Link draggable="false" to={floorPlansRoute.path}>floorplans</Link> | suite type</span>,
+	text: 'suite type',
 };
 
 floorPlansRoute.childRoutes = {
