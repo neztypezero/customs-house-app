@@ -23,14 +23,14 @@ function breakPath(path) {
 
 function NavOverlayBreadCrumb({path}) {
 	return (
-		<label><span>
+		<label>
 			{breakPath(path).map((c, i) =>
-				<>
+				<span>
 					{i>0?' | ':''}
 					{c.path?<Link draggable="false" to={c.path}>{c.label}</Link>:c.label}					
-				</>
+				</span>
 			)}
-		</span></label>
+		</label>
 	);
 }
 
