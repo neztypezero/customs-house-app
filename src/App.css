@@ -78,11 +78,12 @@ body {
 	border:solid 1px var(--customs-house-accent-color);
 	text-decoration:none;
 	text-transform: uppercase;
-	padding:0.5em 1.5em;
+	padding:0.5em 1.5em 0.35em;
 	color:var(--customs-house-main-color);
 	background-color:var(--customs-house-main-bg-transparent-color);
 	transition:color 0.5s, background-color 1s;
 	display:block;
+	line-height:1em;
 }
 
 .customs-house-button:hover {
